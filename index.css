@@ -139,7 +139,7 @@ footer
 	width: 200px;
 	height: 133px;
 }
-.sous_block+img
+.sous_block, img
 {
 	width: 200px;
 	height: 133px;
