@@ -4,87 +4,43 @@ fetch('http://localhost:3000/api/teddies')
   	
 })
 .then(function(data) {
-	const nounours6 = data[0]; //On fait la même chose que dans le fichier javascript.js, pour afficher les images et infos des nounours
-	let img6 = document.createElement("img");
-	img6.src = data[0].imageUrl;
 	
-	let div6 = document.getElementById("Produit");
-	div6.appendChild(img6);
-	let nom6 = document.querySelector(".nom0");
-	nom6.textContent = data[0].name;
-	let info6 = document.querySelector(".description0");
-	info6.textContent = data[0].description;
-	let prix6 = document.querySelector(".prix0");
-	prix6.textContent = data[0].price;
-	
-	let img7 = document.createElement("img");
-	img7.src = "http://localhost:3000/images/teddy_2.jpg";
-	
-	let div7 = document.querySelector(".img1");
-	div7.appendChild(img7);
-
-	let img8 = document.createElement("img");
-	img8.src = "http://localhost:3000/images/teddy_3.jpg";
-	
-	let div8 = document.querySelector(".img2");
-	div8.appendChild(img8);
-
-	let img9 = document.createElement("img");
-	img9.src = "http://localhost:3000/images/teddy_4.jpg";
-	
-	let div9 = document.querySelector(".img3");
-	div9.appendChild(img9);
-
-	let img10 = document.createElement("img");
-	img10.src = "http://localhost:3000/images/teddy_5.jpg";
-	
-	let div10 = document.querySelector(".img4");
-	div10.appendChild(img10);
-
-	let id = window.location.search; //Chaque nounours possède un lien avec un id, en fonction de celui-ci, on change les images et infos de notre page
-	if (id === "?_id=5beaa8bf1c9d440000a57d94") //Si notre id correspond à celui de la barre d'adresse, alors on exécute ce code
-	{
-		img6.src = "http://localhost:3000/images/teddy_2.jpg"; //On change l'image principale de la page2 par celle-ci
-		nom6.textContent = data[1].name; //Modification des anciènes informations par les nouvelles
-		info6.textContent = data[1].description;
-		prix6.textContent = data[1].price;
-		img7.src = "http://localhost:3000/images/teddy_1.jpg"; //On remplace la miniature par l'anciène image principale
-		let newlien1 = document.getElementById('lien1');
-		newlien1.href = "page2.html?_id=5be9c8541c9d440000665243"; //On change le lien de la miniature pour arriver sur le nounours correspondant
+	for (i = 0; i < data.length; i++) {
+		let id2 = window.location.search;
+		let div = document.createElement("div")
+			let img = document.createElement("img"); //On crée un élément img et récupère sa source dans l'API
+			img.src = data[i].imageUrl;
+			let container2 = document.getElementById("container2"); //Ici on va récupérer le nom, déscription et prix du 1er nounours et l'ajouter au HTML
+			let id = data[i]._id;
+			let link = document.createElement("a");
+			link.href = "page2.html?_id=" + id;
+			link.appendChild(img);
+			div.appendChild(link);
+			container2.appendChild(div);
 		
+		if ("?_id=" + data[i]._id === id2) {
+			let div = document.createElement("div")
+			let img = document.createElement("img"); //On crée un élément img et récupère sa source dans l'API
+			img.src = data[i].imageUrl;
+			let container = document.getElementById("Produit"); //Ici on va récupérer le nom, déscription et prix du 1er nounours et l'ajouter au HTML
+			let h3 = document.createElement("h2");
+			h3.textContent = data[i].name;
+			let p = document.createElement("p");
+			p.textContent = data[i].description;
+			let p2 = document.createElement("h3");
+			p2.textContent = data[i].price;
+			let id = data[i]._id;
+			let link = document.createElement("a");
+			link.href = "page2.html?_id=" + id;
+			link.appendChild(img);
+			div.appendChild(link);
+			div.appendChild(h3);
+			div.appendChild(p);
+			div.appendChild(p2);
+			container.appendChild(div);
+			console.log(data);
+		}
+			
 	}
-	else if (id === "?_id=5beaaa8f1c9d440000a57d95") //On exécute le même code en changeant les valeurs pour chaque nounours
-	{
-		img6.src = "http://localhost:3000/images/teddy_3.jpg";
-		nom6.textContent = data[2].name;
-		info6.textContent = data[2].description;
-		prix6.textContent = data[2].price;
-		img8.src = "http://localhost:3000/images/teddy_1.jpg";
-		let newlien2 = document.getElementById('lien2');
-		newlien2.href = "page2.html?_id=5be9c8541c9d440000665243";
-	}
-	else if (id === "?_id=5beaabe91c9d440000a57d96")
-	{
-		img6.src = "http://localhost:3000/images/teddy_4.jpg";
-		nom6.textContent = data[3].name;
-		info6.textContent = data[3].description;
-		prix6.textContent = data[3].price;
-		img9.src = "http://localhost:3000/images/teddy_1.jpg";
-		let newlien3 = document.getElementById('lien3');
-		newlien3.href = "page2.html?_id=5be9c8541c9d440000665243";
-	}
-	else if (id === "?_id=5beaacd41c9d440000a57d97")
-	{
-		img6.src = "http://localhost:3000/images/teddy_5.jpg";
-		nom6.textContent = data[4].name;
-		info6.textContent = data[4].description;
-		prix6.textContent = data[4].price;
-		img10.src = "http://localhost:3000/images/teddy_1.jpg";
-		let newlien4 = document.getElementById('lien4');
-		newlien4.href = "page2.html?_id=5be9c8541c9d440000665243";
-	}
-
-	
-	
 	
 })
