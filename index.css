@@ -125,12 +125,30 @@ a:hover
 	margin-right: 2%;
 	margin-top: 1%;
 }
+#ListeDéroulante
+{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2%;
+}
+
 #Produit img
 {
 	display: flex;
 	margin-left: 22%;
 	width: 450px;
 	height: 300px;
+}
+#Bouton
+{
+	display: flex;
+	justify-content: center;
+}
+.Couleur
+{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2%;
 }
 .panier
 {
