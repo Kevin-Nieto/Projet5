@@ -46,13 +46,14 @@ fetch('http://localhost:3000/api/teddies')
 			currentPanier.name = data[i].name;
 			currentPanier.price = data[i].price;
 			
+
 			document.getElementById("myBtn").addEventListener("click", function() { //On ajoute un évènement onclick, pour récupérer les informations à ce moment
 		  		
 		  		let qt = document.getElementById("qt");
 				currentPanier.quantity = qt.value; //Récupération de la quantitée séléctionée
 				console.log(currentPanier);
 			});
-			let liste_couleur = document.createElement("SELECT"); //On fait une liste déroulante dynamique pour les couleurs des nounours
+			let liste_couleur = document.getElementById("SELECT"); //On fait une liste déroulante dynamique pour les couleurs des nounours
 
 			for (y = 0; y < (data[i].colors.length); y++) { //Une boucle pour afficher autant de couleur disponible en fonction du nounours
 
@@ -60,9 +61,13 @@ fetch('http://localhost:3000/api/teddies')
 				option.text = data[i].colors[y];
 				liste_couleur.appendChild(option);
 				couleur.appendChild(liste_couleur);
-				currentPanier.couleur = liste_couleur.value; //On ajoute la couleur choisie dans notre objet
+				document.getElementById("choix").addEventListener("change", function(){
+					let color = document.getElementById("SELECT");
+					currentPanier.couleur = color.value;
+				});
 				
 			}
+
 				
 		}
 			
