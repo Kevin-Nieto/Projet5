@@ -131,7 +131,40 @@ a:hover
 	justify-content: center;
 	margin-bottom: 2%;
 }
-
+#récapAchat
+{
+	display: flex;
+	flex-direction: column;
+	border-width:1px;
+ 	border-style:solid;
+ 	border-color:black;
+ 	margin:5% 30% 14% 30%;
+ 	padding: 1%;
+}
+#myBtn
+{
+	margin-bottom: 5%;
+}
+#panier
+{
+	border-width:1px;
+ 	border-style:solid;
+ 	border-color:black;
+ 	margin:5% 20% 5% 20%;
+ 	padding: 1%;
+}
+#panier h4
+{
+	display: flex;
+	justify-content: center;
+}
+#panier img
+{
+	display: flex;
+	margin-left: 30%;
+	width: 40%;
+	height: 40%;
+}
 #Produit img
 {
 	display: flex;
@@ -155,7 +188,7 @@ a:hover
 	display: flex;
 	position: absolute;
 	margin-left: 600px;
-	margin-top: 20px;
+	margin-top: 45px;
 }
 main h1
 {
@@ -164,7 +197,28 @@ main h1
 	margin-top: 4%;
 	text-decoration: underline;
 }
+form {
+  display: flex;
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 2%;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+  align-items: center;
+  flex-direction: column;
+}
 
+form div + div {
+  margin-top: 1em;
+}
+
+form label {
+  /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
 
 footer
 {
@@ -213,11 +267,11 @@ footer
 	margin-top: 8%;
 	text-decoration: underline;
 }
-@media all and (min-width: 430px) and (max-width: 824px)
+@media all and (min-width: 640px) and (max-width: 824px)
 {
 	body
 	{
-		font-size: 70%;
+		font-size: 80%;
 	}
 	.sous_block1+img
 	{
@@ -229,31 +283,27 @@ footer
 		width: 150px;
 		height: 100px;
 	}
-	.sous_block+img
+	.sous_block, img
 	{
-		width: 150px;
-		height: 99px;
+		width: 160px;
+		height: 115px;
 	}
 	.panier
 	{
 		margin-left: 365px;
-		margin-top: 13px;
+		margin-top: 40px;
 	}
-	header img
-	{
-		width: 150px;
-		height: 65px;
-	}
+	
 	.block
 	{
 		margin-left: 5px;
 	}
 }
-@media all and (min-width: 300px) and (max-width: 429px)
+@media all and (min-width: 531px) and (max-width: 639px)
 {
 	body
 	{
-		font-size: 60%;
+		font-size: 65%;
 	}
 	#Produit input
 	{
@@ -269,43 +319,151 @@ footer
 		width: 70px;
 		height: 46px;
 	}
-	.sous_block+img
+	.sous_block, img
 	{
 		width: 110px;
 		height: 73px;
 	}
 	.panier
 	{
-		margin-left: 260px;
-		margin-top: 13px;
+		margin-left: 235px;
+		margin-top: 25px;
+	}
+	.block
+	{
+		margin-left: 5px;
+	}
+	#container img
+	{
+		margin-left: 39%;
+	}
+	#container p
+	{
+		display: flex;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	footer
+	{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+@media all and (min-width: 410px) and (max-width: 530px)
+{
+	body
+	{
+		font-size: 50%;
+	}
+	#Produit input
+	{
+		font-size: 80%;
+	}
+	.sous_block1+img
+	{
+		width: 190px;
+		height: 126px;
+	}
+	.img img
+	{
+		width: 70px;
+		height: 46px;
+	}
+	.sous_block, img
+	{
+		width: 110px;
+		height: 73px;
+	}
+	.panier
+	{
+		margin-left: 235px;
+		margin-top: 25px;
+	}
+	.block
+	{
+		margin-left: 5px;
+	}
+	#container p
+	{
+		display: flex;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	footer
+	{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+@media all and (min-width: 310px) and (max-width: 409px)
+{
+	body
+	{
+		font-size: 35%;
+	}
+	#Produit input
+	{
+		font-size: 80%;
+	}
+	.sous_block1+img
+	{
+		width: 190px;
+		height: 126px;
+	}
+	.img img
+	{
+		width: 70px;
+		height: 46px;
+	}
+	.sous_block, img
+	{
+		width: 110px;
+		height: 73px;
+	}
+	.panier
+	{
+		margin-left: 235px;
+		margin-top: 25px;
 	}
 	header img
 	{
-		width: 130px;
+		width: 90px;
 		height: 55px;
 	}
 	.block
 	{
 		margin-left: 5px;
 	}
-}
-@media all and (min-width: 430px) and (max-width: 610px)
-{
-	.sous_block1+img
+	#container p
 	{
-		width: 230px;
-		height: 153px;
+		display: flex;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
-	.img img
+	#container img
 	{
-		width: 100px;
-		height: 66px;
+		margin-left: 33%;
+	}
+	footer
+	{
+		padding-left: 5%;
+		padding-right: 5%;
 	}
 }
 @media all and (min-width: 2000px) and (max-width: 2800px)
 {
 	body
 	{
-		font-size: 140%;
+		font-size: 150%;
+	}
+	.sous_block, img
+	{
+		width: 300px;
+		height: 220px;
+	}
+	.panier
+	{
+		margin-top: 75px;
+		margin-left: 800px;
 	}
 }

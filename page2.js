@@ -8,15 +8,15 @@ fetch('http://localhost:3000/api/teddies')
 	for (i = 0; i < data.length; i++) { //On fait un boucle pour créer toutes nos images et liens sur notre page
 		let id2 = window.location.search; //On récupère l'url courant pour modifier dynamiquement notre affichage en fonction
 		let div = document.createElement("div")
-			let img = document.createElement("img"); //On crée un élément img et récupère sa source dans l'API
-			img.src = data[i].imageUrl;
-			let container2 = document.getElementById("container2"); 
-			let id = data[i]._id;
-			let link = document.createElement("a"); //Ici on crée nos liens
-			link.href = "page2.html?_id=" + id;
-			link.appendChild(img);
-			div.appendChild(link);
-			container2.appendChild(div);
+		let img = document.createElement("img"); //On crée un élément img et récupère sa source dans l'API
+		img.src = data[i].imageUrl;
+		let container2 = document.getElementById("container2"); 
+		let id = data[i]._id;
+		let link = document.createElement("a"); //Ici on crée nos liens
+		link.href = "page2.html?_id=" + id;
+		link.appendChild(img);
+		div.appendChild(link);
+		container2.appendChild(div);
 
 			
 		
@@ -45,13 +45,41 @@ fetch('http://localhost:3000/api/teddies')
 			currentPanier.image = data[i].imageUrl;
 			currentPanier.name = data[i].name;
 			currentPanier.price = data[i].price;
+			currentPanier._id = data[i]._id;
 			
 
 			document.getElementById("myBtn").addEventListener("click", function() { //On ajoute un évènement onclick, pour récupérer les informations à ce moment
 		  		
 		  		let qt = document.getElementById("qt");
 				currentPanier.quantity = qt.value; //Récupération de la quantitée séléctionée
-				console.log(currentPanier);
+				//let objetPanier_json = JSON.stringify(currentPanier);
+				//localStorage.setItem("objet",objetPanier_json);
+				
+				let panier = JSON.parse(localStorage.getItem("objet"));
+				if (panier === null && currentPanier.couleur != undefined) {
+					let panierSauvegarder = [];
+					panierSauvegarder.push(currentPanier);
+					localStorage.setItem("objet", JSON.stringify(panierSauvegarder));
+					panier = null;
+					let ajoutPanier = "C'est ajouté !";
+					alert(ajoutPanier);
+				}
+				else if (panier === null && currentPanier.couleur === undefined) {
+					let message = "Choisissez une couleur !";
+					alert(message);
+				}
+				else if (panier != null && currentPanier.couleur === undefined) {
+					let message = "Choisissez une couleur !";
+					alert(message);
+				}
+				else {
+					let panierSauvegarder = panier;
+					panierSauvegarder.push(currentPanier);
+					localStorage.setItem("objet", JSON.stringify(panierSauvegarder));
+					let ajoutPanier = "C'est ajouté !";
+					alert(ajoutPanier);
+				}
+				
 			});
 			let liste_couleur = document.getElementById("SELECT"); //On fait une liste déroulante dynamique pour les couleurs des nounours
 
@@ -65,12 +93,7 @@ fetch('http://localhost:3000/api/teddies')
 					let color = document.getElementById("SELECT");
 					currentPanier.couleur = color.value;
 				});
-				
-			}
-
-				
+			}	
 		}
-			
 	}
-
 })

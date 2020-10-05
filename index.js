@@ -25,11 +25,5 @@ for (i = 0; i < data.length; i++) {
 		div.appendChild(p);
 		div.appendChild(p2);
 		container.appendChild(div);
-		console.log(data);
-		
-
-	}
-
-	
-	
+	}	
 })
