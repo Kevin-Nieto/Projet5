@@ -52,14 +52,12 @@ fetch('http://localhost:3000/api/teddies')
 		  		
 		  		let qt = document.getElementById("qt");
 				currentPanier.quantity = qt.value; //Récupération de la quantitée séléctionée
-				//let objetPanier_json = JSON.stringify(currentPanier);
-				//localStorage.setItem("objet",objetPanier_json);
 				
 				let panier = JSON.parse(localStorage.getItem("objet"));
-				if (panier === null && currentPanier.couleur != undefined) {
+				if (panier === null && currentPanier.couleur != undefined) { //On définie les différentes actions en fonction du panier et de la quantitée
 					let panierSauvegarder = [];
-					panierSauvegarder.push(currentPanier);
-					localStorage.setItem("objet", JSON.stringify(panierSauvegarder));
+					panierSauvegarder.push(currentPanier); //On ajoute le choix du client dans le tableau panierSauvegarder
+					localStorage.setItem("objet", JSON.stringify(panierSauvegarder)); //On met notre panierSauvegarder sur le local storage
 					panier = null;
 					let ajoutPanier = "C'est ajouté !";
 					alert(ajoutPanier);
