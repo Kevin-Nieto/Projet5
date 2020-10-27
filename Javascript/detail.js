@@ -13,7 +13,7 @@ fetch('http://localhost:3000/api/teddies')
 		let container2 = document.getElementById("container2"); 
 		let id = data[i]._id;
 		let link = document.createElement("a"); //Ici on crée nos liens
-		link.href = "page2.html?_id=" + id;
+		link.href = "detail.html?_id=" + id;
 		link.appendChild(img);
 		div.appendChild(link);
 		container2.appendChild(div);
@@ -33,7 +33,7 @@ fetch('http://localhost:3000/api/teddies')
 			p2.textContent = data[i].price;
 			let id = data[i]._id;
 			let link = document.createElement("a");
-			link.href = "page2.html?_id=" + id;
+			link.href = "detail.html?_id=" + id;
 			let couleur = document.getElementById("choix") //On déclare une variable couleur pour créer une liste déroulante plus tard
 			link.appendChild(img);
 			div.appendChild(link);

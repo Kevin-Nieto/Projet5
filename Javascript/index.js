@@ -18,7 +18,7 @@ for (i = 0; i < data.length; i++) {
 		p2.textContent = data[i].price; //Récupération du prix du nounours
 		let id = data[i]._id; //Récupération de l'id du nounours
 		let link = document.createElement("a"); //Création d'un lien pour accéder à notre deuxieme page html
-		link.href = "page2.html?_id=" + id;
+		link.href = "detail.html?_id=" + id;
 		link.appendChild(img); //On ajoute toute nos informations dans notre div, puis dans notre container
 		div.appendChild(link);
 		div.appendChild(h3);
